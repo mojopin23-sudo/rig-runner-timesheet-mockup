@@ -615,6 +615,7 @@ function pad(c){var r=c.getBoundingClientRect(),dpr=window.devicePixelRatio||1;c
  c.addEventListener('pointerup',end);c.addEventListener('pointercancel',end);c.addEventListener('pointerleave',end);
  on('clr','click',function(){x.clearRect(0,0,c.width,c.height);S.sig=null;});
 }
+document.addEventListener('input',function(e){if(e.target.id==='reason'&&errs.reason){delete errs.reason;var f=document.getElementById('f-reason');if(f)f.classList.remove('invalid');}});
 document.addEventListener('change',function(e){if(e.target.id&&errs[e.target.id]){delete errs[e.target.id];var f=document.getElementById('f-'+e.target.id);if(f)f.classList.remove('invalid');}});
 seed();S=blank();step='gate';tick();setInterval(tick,15000);render();
 })();
